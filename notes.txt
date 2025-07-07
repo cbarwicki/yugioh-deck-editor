@@ -1,0 +1,38 @@
+
+cards in api:
+13717
+
+card dimensions:
+268 x 391
+half size:
+134 x 196
+quarter size:
+67 x 98
+
+large card dimensions:
+813 x 1185
+75% size:
+610 x 889
+65% size:
+528 x 770
+half size:
+407 x 593
+
+XS size for side/extra:
+74 x 50
+
+
+URL for small card pics:
+https://yugi-card-bucket.s3.us-east-2.amazonaws.com/pics_small/${cardId}.jpg
+
+
+Progress throughout this project:
+
+* Learned how to cache a public api as a local .json file using python
+* Able to query local .json file
+* Ran a Python program which iterated through the json and downloaded the image 
+  associated with each card, so that all the card images can be stored locally and 
+  API calls are no longer necessary to pull card pics
+* Learned how to lazy load so that components aren't rendered until they are needed
+* Used AWS S3 to host over 25,000 images of yugioh cards
+* Learned how to use debouncing in a search bar to optimize performance

@@ -1,0 +1,70 @@
+.DeckViewer {
+    position: absolute;
+    display: relative;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100vh;
+    margin-left: 30%;
+    margin-top: 15px;
+    text-align: left;
+}
+
+.textDiv {
+    margin-left: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.MainDeck {
+    width: 80%;                /* Large width */
+    height: 60%;             /* Large height */
+    margin: 50px auto;         /* Center horizontally with top margin */
+    margin-bottom: 5px;
+    margin-top: 5px;
+    background-color: rgba(255, 255, 255, 0.8); /* White with transparency */
+    border-radius: 10px;       /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;             /* Inner spacing */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+}
+
+.SideDeck {
+    width: 90%;                /* Large width */
+    height: 7%;             
+    margin: 50px auto;         /* Center horizontally with top margin */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: rgba(255, 255, 255, 0.8); /* White with transparency */
+    border-radius: 10px;       /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 5px;             /* Inner spacing */
+    display: flex;
+    flex-direction: column;
+}
+
+.SideDeck img {
+    width: 50px;
+    height: 74px;
+}
+
+.ExtraDeck {
+    width: 90%;                /* Large width */
+    height: 7%;             
+    margin: 50px auto;         /* Center horizontally with top margin */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: rgba(255, 255, 255, 0.8); /* White with transparency */
+    border-radius: 10px;       /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 5px;             /* Inner spacing */
+    display: flex;
+    flex-direction: column;
+}
+
+.ExtraDeck img {
+    width: 50px;
+    height: 74px;
+}

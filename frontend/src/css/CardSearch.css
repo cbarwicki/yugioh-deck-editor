@@ -1,0 +1,82 @@
+.CardSearch {
+    width: 20%;
+    position: relative;
+    left: 80%;
+    text-align: left;
+}
+
+.CardList {
+    max-height: 790px;
+    overflow-y: auto;
+}
+
+.Search {
+    --padding: 14px;
+    width: 75%;
+    display: flex;
+    align-items: center;
+    padding: var(--padding);
+    border-radius: 28px;
+    background: #f6f6f6;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    border: #f6f6f6;
+    outline: #f6f6f6;
+    /* transition: background 0.25s; */
+}
+
+.Search:focus-within {
+    background: #f1f1f1;
+}
+
+.Search-input {
+    font-size: 16px;
+    font-family: 'Lexend', sans-serif;
+    color: #333333;
+    margin-left: var(--padding);
+    outline: none;
+    border: none;
+    background: transparent;
+    width: 300px;
+}
+
+.Search-input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.AddToSide {
+    margin-left: 0px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.Dropdown {
+    margin-left: 10px;
+    width: 30%;
+}
+
+.AttributeDropdown {
+    margin-top: 8px;
+    margin-left: 18px;
+    margin-right: 10px;
+    width: 20%;
+}
+
+.TypeDropdown {
+    margin-top: 8px;
+    margin-left: 10px;
+    width: 30%;
+}
+
+.LevelInput {
+    margin-top: 8px;
+    margin-left: 4px;
+    width: 30px;
+    margin-right: 10px;
+}
+
+.LinkInput {
+    margin-top: 8px;
+    margin-left: 10px;
+    width: 30px;
+}
