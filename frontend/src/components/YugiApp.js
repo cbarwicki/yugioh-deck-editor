@@ -2,8 +2,8 @@ import React from "react";
 import { useState } from 'react';
 import CardSearch from "./CardSearch.js";
 import CardViewer from "./CardViewer.js";
-import Background from "../img/bls.jpg";
 import DeckViewer from "./DeckViewer.js";
+import '../css/YugiApp.css';
 
 function YugiApp () {
 
@@ -76,26 +76,31 @@ function YugiApp () {
     };
 
     return (
-        <div style={
-        {backgroundImage: `linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(${Background})`,
-        backgroundRepeat: 'no-repeat',
-        minHeight: '100vh',
-        }}>
-            Yugioh Deck Editor
-            <CardViewer id={currentCardId} />
-            <DeckViewer 
-                setCurrentCardId={setCurrentCardId} 
-                mainDeck={mainDeck} sideDeck={sideDeck} 
-                extraDeck={extraDeck} 
-                removeFromDeck={removeFromDeck} 
-                removeFromSideDeck={removeFromSideDeck} 
-                removeFromExtraDeck={removeFromExtraDeck}
-            />
-            <CardSearch 
-                setCurrentCardId={setCurrentCardId} 
-                addToDeck={addToDeck} 
-                updateAddToSide={updateAddToSide} 
-            />
+        <div className="yugi-app-container">
+            <header className="app-header">
+                <h1 className="app-title">Yu-Gi-Oh! Deck Editor</h1>
+                <div className="deck-stats">
+                    <span className="stat">Main: {mainDeck.length}/60</span>
+                    <span className="stat">Side: {sideDeck.length}/15</span>
+                    <span className="stat">Extra: {extraDeck.length}/15</span>
+                </div>
+            </header>
+            <main className="app-main">
+                <CardViewer id={currentCardId} />
+                <DeckViewer 
+                    setCurrentCardId={setCurrentCardId} 
+                    mainDeck={mainDeck} sideDeck={sideDeck} 
+                    extraDeck={extraDeck} 
+                    removeFromDeck={removeFromDeck} 
+                    removeFromSideDeck={removeFromSideDeck} 
+                    removeFromExtraDeck={removeFromExtraDeck}
+                />
+                <CardSearch 
+                    setCurrentCardId={setCurrentCardId} 
+                    addToDeck={addToDeck} 
+                    updateAddToSide={updateAddToSide} 
+                />
+            </main>
         </div>
     );
 }

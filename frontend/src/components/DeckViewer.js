@@ -7,41 +7,70 @@ function DeckViewer ( { id, setCurrentCardId, mainDeck, sideDeck, extraDeck, rem
 
     return (
         <div className="DeckViewer">
-            <div className="textDiv">
-                Main Deck:
+            <div className="deck-section">
+                <div className="deck-header">
+                    <h3 className="deck-title">Main Deck</h3>
+                    <span className="deck-count">{mainDeck.length}/60</span>
+                </div>
+                <div className="MainDeck">
+                    {mainDeck.length === 0 ? (
+                        <div className="deck-empty">
+                            <div className="deck-empty-text">No cards in main deck</div>
+                        </div>
+                    ) : (
+                        <Grid container spacing={1.5} className="CardList">
+                            {mainDeck.map((cardId, index) => (
+                            <Grid key={`main-${cardId}-${index}`} onClick={() => removeFromDeck(cardId)} >
+                                <Card id={cardId} setCurrentCardId={setCurrentCardId} />
+                            </Grid>
+                            ))}
+                        </Grid>
+                    )}
+                </div>
             </div>
-            <div className="MainDeck">
-                <Grid container spacing={1.5} className="CardList">
-                    {mainDeck.map((cardId) => (
-                    <Grid onClick={() => removeFromDeck(cardId)} >
-                        <Card id={cardId} setCurrentCardId={setCurrentCardId} />
-                    </Grid>
-                    ))}
-                </Grid>
+
+            <div className="deck-section">
+                <div className="deck-header">
+                    <h3 className="deck-title">Side Deck</h3>
+                    <span className="deck-count">{sideDeck.length}/15</span>
+                </div>
+                <div className="SideDeck">
+                    {sideDeck.length === 0 ? (
+                        <div className="deck-empty">
+                            <div className="deck-empty-text">No cards in side deck</div>
+                        </div>
+                    ) : (
+                        <Grid container spacing={1.5} className="CardList">
+                            {sideDeck.map((cardId, index) => (
+                            <Grid key={`side-${cardId}-${index}`} onClick={() => removeFromSideDeck(cardId)}>
+                                <Card id={cardId} setCurrentCardId={setCurrentCardId} />
+                            </Grid>
+                            ))}
+                        </Grid>
+                    )}
+                </div>
             </div>
-            <div className="textDiv">
-                Side Deck:
-            </div>
-            <div className="SideDeck">
-                <Grid container spacing={1.5} className="CardList">
-                    {sideDeck.map((cardId) => (
-                    <Grid onClick={() => removeFromSideDeck(cardId)}>
-                        <Card id={cardId} setCurrentCardId={setCurrentCardId} />
-                    </Grid>
-                    ))}
-                </Grid>
-            </div>
-            <div className="textDiv">
-                Extra Deck:
-            </div>
-            <div className="ExtraDeck">
-                <Grid container spacing={1.5} className="CardList">
-                    {extraDeck.map((cardId) => (
-                    <Grid onClick={() => removeFromExtraDeck(cardId)}>
-                        <Card id={cardId} setCurrentCardId={setCurrentCardId} />
-                    </Grid>
-                    ))}
-                </Grid>
+
+            <div className="deck-section">
+                <div className="deck-header">
+                    <h3 className="deck-title">Extra Deck</h3>
+                    <span className="deck-count">{extraDeck.length}/15</span>
+                </div>
+                <div className="ExtraDeck">
+                    {extraDeck.length === 0 ? (
+                        <div className="deck-empty">
+                            <div className="deck-empty-text">No cards in extra deck</div>
+                        </div>
+                    ) : (
+                        <Grid container spacing={1.5} className="CardList">
+                            {extraDeck.map((cardId, index) => (
+                            <Grid key={`extra-${cardId}-${index}`} onClick={() => removeFromExtraDeck(cardId)}>
+                                <Card id={cardId} setCurrentCardId={setCurrentCardId} />
+                            </Grid>
+                            ))}
+                        </Grid>
+                    )}
+                </div>
             </div>
         </div>
     );

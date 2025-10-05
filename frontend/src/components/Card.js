@@ -21,14 +21,26 @@ const Card = React.memo(function Card ({ id, name, desc, setCurrentCardId } ){
     });
 
     return (
-        <div onClick={handleClick} onMouseEnter={handleHover} ref={ref}>
+        <div 
+            className="card-container" 
+            onClick={handleClick} 
+            onMouseEnter={handleHover} 
+            ref={ref}
+        >
             {inView ? (
                 <div>
-                    <img src={cardPic} alt={id} height={98} width={67} />
+                    <img 
+                        src={cardPic} 
+                        alt={id} 
+                        height={98} 
+                        width={67} 
+                        className="card-image"
+                    />
                     {console.log(`${name} is rendered`)}
                 </div>
-            ) : null}
-            
+            ) : (
+                <div className="card-loading" />
+            )}
         </div>
     );
 })
