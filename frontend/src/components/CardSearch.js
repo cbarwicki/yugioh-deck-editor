@@ -84,105 +84,127 @@ function CardSearch ( { setCurrentCardId, addToDeck, updateAddToSide } ) {
 
     return (
         <div className="CardSearch">
-            <input
-                className="Search"
-                placeholder="Type to search..."
-                value={input}
-                onChange={(e) => handleChange(e.target.value)}
-            />
-            <div>
-                Card Type:
-                <select className="Dropdown" onChange={(e) => handleCardTypeChange(e.target.value)}>
-                    <option value=""></option>
-                    <option value="Monster">Monster Card</option>
-                    <option value="Spell">Spell Card</option>
-                    <option value="Trap">Trap Card</option>
-                </select>
+            <div className="search-section">
+                <h3 className="search-title">Card Search</h3>
+                <div className="Search">
+                    <input
+                        className="Search-input"
+                        placeholder="Type to search..."
+                        value={input}
+                        onChange={(e) => handleChange(e.target.value)}
+                    />
+                </div>
             </div>
-            {cardTypeFilter == "Monster" ? (
-                <div>
-                    Attribute:
-                    <select className="AttributeDropdown" onChange={(e) => setAttributeFilter(e.target.value)}>
+
+            <div className="filters-section">
+                <div className="filter-group">
+                    <label className="filter-label">Card Type:</label>
+                    <select className="Dropdown" onChange={(e) => handleCardTypeChange(e.target.value)}>
                         <option value=""></option>
-                        <option value="DARK">DARK</option>
-                        <option value="LIGHT">LIGHT</option>
-                        <option value="FIRE">FIRE</option>
-                        <option value="WATER">WATER</option>
-                        <option value="WIND">WIND</option>
-                        <option value="EARTH">EARTH</option>
-                        <option value="DIVINE">DIVINE</option>
-                    </select>
-                    Type:
-                    <select className="TypeDropdown" onChange={(e) => setTypeFilter(e.target.value)}>
-                        <option value=""></option>
-                        <option value="Aqua">Aqua</option>
-                        <option value="Beast">Beast</option>
-                        <option value="Beast-Warrior">Beast-Warrior</option>
-                        <option value="Cyberse">Cyberse</option>
-                        <option value="Dinosaur">Dinosaur</option>
-                        <option value="Divine-Beast">Divine-Beast</option>
-                        <option value="Dragon">Dragon</option>
-                        <option value="Fairy">Fairy</option>
-                        <option value="Fiend">Fiend</option>
-                        <option value="Fish">Fish</option>
-                        <option value="Illusion">Illusion</option>
-                        <option value="Machine">Machine</option>
-                        <option value="Plant">Plant</option>
-                        <option value="Psychic">Psychic</option>
-                        <option value="Pyro">Pyro</option>
-                        <option value="Reptile">Reptile</option>
-                        <option value="Rock">Rock</option>
-                        <option value="Sea Serpent">Sea Serpent</option>
-                        <option value="Spellcaster">Spellcaster</option>
-                        <option value="Thunder">Thunder</option>
-                        <option value="Warrior">Warrior</option>
-                        <option value="Winged Beast">Winged Beast</option>
-                        <option value="Wyrm">Wyrm</option>
-                        <option value="Zombie">Zombie</option>
-                    </select>
-                    Level/Rank:
-                    <input className="LevelInput" type="number" min={1} max={12} onChange={(e) => setLevelFilter(e.target.value)} />
-                    Link Rating:
-                    <input className="LinkInput" type="number" onChange={(e) => setLinkFilter(e.target.value)} />
-                </div>
-            ) : (
-                null
-            )}
-            {cardTypeFilter == "Spell" ? (
-                <div>
-                    Type:
-                    <select className="TypeDropdown" onChange={(e) => setTypeFilter(e.target.value)}>
-                        <option value=""></option>
-                        <option value="Continuous">Continuous</option>
-                        <option value="Equip">Equip</option>
-                        <option value="Field">Field</option>
-                        <option value="Ritual">Ritual</option>
-                        <option value="Quick-Play">Quick-Play</option>
+                        <option value="Monster">Monster Card</option>
+                        <option value="Spell">Spell Card</option>
+                        <option value="Trap">Trap Card</option>
                     </select>
                 </div>
-            ) : (
-                null
-            )}
-            {cardTypeFilter == "Trap" ? (
-                <div>
-                    Type:
-                    <select className="TypeDropdown" onChange={(e) => setTypeFilter(e.target.value)}>
-                        <option value=""></option>
-                        <option value="Continuous">Continuous</option>
-                        <option value="Counter">Counter</option>
-                    </select>
-                </div>
-            ) : (
-                null
-            )}
-            <div className="AddToSide" >
+
+                {cardTypeFilter == "Monster" ? (
+                    <>
+                        <div className="filter-group">
+                            <label className="filter-label">Attribute:</label>
+                            <select className="AttributeDropdown" onChange={(e) => setAttributeFilter(e.target.value)}>
+                                <option value=""></option>
+                                <option value="DARK">DARK</option>
+                                <option value="LIGHT">LIGHT</option>
+                                <option value="FIRE">FIRE</option>
+                                <option value="WATER">WATER</option>
+                                <option value="WIND">WIND</option>
+                                <option value="EARTH">EARTH</option>
+                                <option value="DIVINE">DIVINE</option>
+                            </select>
+                        </div>
+                        <div className="filter-group">
+                            <label className="filter-label">Type:</label>
+                            <select className="TypeDropdown" onChange={(e) => setTypeFilter(e.target.value)}>
+                                <option value=""></option>
+                                <option value="Aqua">Aqua</option>
+                                <option value="Beast">Beast</option>
+                                <option value="Beast-Warrior">Beast-Warrior</option>
+                                <option value="Cyberse">Cyberse</option>
+                                <option value="Dinosaur">Dinosaur</option>
+                                <option value="Divine-Beast">Divine-Beast</option>
+                                <option value="Dragon">Dragon</option>
+                                <option value="Fairy">Fairy</option>
+                                <option value="Fiend">Fiend</option>
+                                <option value="Fish">Fish</option>
+                                <option value="Illusion">Illusion</option>
+                                <option value="Machine">Machine</option>
+                                <option value="Plant">Plant</option>
+                                <option value="Psychic">Psychic</option>
+                                <option value="Pyro">Pyro</option>
+                                <option value="Reptile">Reptile</option>
+                                <option value="Rock">Rock</option>
+                                <option value="Sea Serpent">Sea Serpent</option>
+                                <option value="Spellcaster">Spellcaster</option>
+                                <option value="Thunder">Thunder</option>
+                                <option value="Warrior">Warrior</option>
+                                <option value="Winged Beast">Winged Beast</option>
+                                <option value="Wyrm">Wyrm</option>
+                                <option value="Zombie">Zombie</option>
+                            </select>
+                        </div>
+                        <div className="filter-group">
+                            <label className="filter-label">Level/Rank:</label>
+                            <input className="LevelInput" type="number" min={1} max={12} onChange={(e) => setLevelFilter(e.target.value)} />
+                        </div>
+                        <div className="filter-group">
+                            <label className="filter-label">Link Rating:</label>
+                            <input className="LinkInput" type="number" onChange={(e) => setLinkFilter(e.target.value)} />
+                        </div>
+                    </>
+                ) : null}
+
+                {cardTypeFilter == "Spell" ? (
+                    <div className="filter-group">
+                        <label className="filter-label">Type:</label>
+                        <select className="TypeDropdown" onChange={(e) => setTypeFilter(e.target.value)}>
+                            <option value=""></option>
+                            <option value="Continuous">Continuous</option>
+                            <option value="Equip">Equip</option>
+                            <option value="Field">Field</option>
+                            <option value="Ritual">Ritual</option>
+                            <option value="Quick-Play">Quick-Play</option>
+                        </select>
+                    </div>
+                ) : null}
+
+                {cardTypeFilter == "Trap" ? (
+                    <div className="filter-group">
+                        <label className="filter-label">Type:</label>
+                        <select className="TypeDropdown" onChange={(e) => setTypeFilter(e.target.value)}>
+                            <option value=""></option>
+                            <option value="Continuous">Continuous</option>
+                            <option value="Counter">Counter</option>
+                        </select>
+                    </div>
+                ) : null}
+            </div>
+
+            <div className="AddToSide">
                 <input 
                     type="checkbox" 
                     name="addToSide"
                     defaultChecked={false}
                     onChange={(e) => updateAddToSide(e.target.checked)}
-                /> Add To Side Deck
+                />
+                <label htmlFor="addToSide">Add To Side Deck</label>
             </div>
+
+            {results.length > 0 && (
+                <div className="results-count">
+                    Found {results.length} card{results.length !== 1 ? 's' : ''}
+                </div>
+            )}
+
             <Grid container spacing={1.5} className="CardList">
                 {results.map((card) => (
                 <Grid key={card.id} onClick={() => addToDeck(card)} >

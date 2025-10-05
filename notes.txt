@@ -36,3 +36,6 @@ Progress throughout this project:
 * Learned how to lazy load so that components aren't rendered until they are needed
 * Used AWS S3 to host over 25,000 images of yugioh cards
 * Learned how to use debouncing in a search bar to optimize performance
+
+url for deployment:
+https://yugioh-deck-editor-szsu.vercel.app/

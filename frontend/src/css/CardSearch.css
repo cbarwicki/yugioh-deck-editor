@@ -1,82 +1,184 @@
 .CardSearch {
-    width: 20%;
-    position: relative;
-    left: 80%;
-    text-align: left;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    height: fit-content;
+    position: sticky;
+    top: 120px;
 }
 
 .CardList {
-    max-height: 790px;
+    padding-top: 10px;
+    padding-left: 5px;
+    max-height: 600px;
     overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.CardList::-webkit-scrollbar {
+    width: 6px;
+}
+
+.CardList::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+
+.CardList::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-radius: 3px;
+}
+
+.CardList::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #5a6fd8, #6a4190);
+}
+
+.search-section {
+    margin-bottom: 1.5rem;
+}
+
+.search-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .Search {
-    --padding: 14px;
-    width: 75%;
+    --padding: 16px;
+    width: 100%;
     display: flex;
     align-items: center;
     padding: var(--padding);
-    border-radius: 28px;
-    background: #f6f6f6;
-    margin-top: 40px;
-    margin-bottom: 15px;
-    border: #f6f6f6;
-    outline: #f6f6f6;
-    /* transition: background 0.25s; */
+    border-radius: 15px;
+    background: #f8f9fa;
+    border: 2px solid transparent;
+    outline: none;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
 }
 
 .Search:focus-within {
-    background: #f1f1f1;
+    background: #ffffff;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .Search-input {
     font-size: 16px;
-    font-family: 'Lexend', sans-serif;
-    color: #333333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
     margin-left: var(--padding);
     outline: none;
     border: none;
     background: transparent;
-    width: 300px;
+    width: 100%;
 }
 
 .Search-input::placeholder {
-    color: rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.filters-section {
+    background: rgba(248, 249, 250, 0.8);
+    border-radius: 15px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.filter-group {
+    margin-bottom: 1rem;
+}
+
+.filter-group:last-child {
+    margin-bottom: 0;
+}
+
+.filter-label {
+    display: block;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.Dropdown, .AttributeDropdown, .TypeDropdown {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    background: white;
+    font-size: 0.9rem;
+    color: #333;
+    transition: all 0.3s ease;
+    margin-bottom: 0.5rem;
+}
+
+.Dropdown:focus, .AttributeDropdown:focus, .TypeDropdown:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    outline: none;
+}
+
+.LevelInput, .LinkInput {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    background: white;
+    font-size: 0.9rem;
+    color: #333;
+    transition: all 0.3s ease;
+    margin-bottom: 0.5rem;
+}
+
+.LevelInput:focus, .LinkInput:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    outline: none;
 }
 
 .AddToSide {
-    margin-left: 0px;
-    margin-top: 10px;
-    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    padding: 0.75rem;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s ease;
 }
 
-.Dropdown {
-    margin-left: 10px;
-    width: 30%;
+.AddToSide:hover {
+    background: rgba(102, 126, 234, 0.15);
 }
 
-.AttributeDropdown {
-    margin-top: 8px;
-    margin-left: 18px;
-    margin-right: 10px;
-    width: 20%;
+.AddToSide input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #667eea;
+    cursor: pointer;
 }
 
-.TypeDropdown {
-    margin-top: 8px;
-    margin-left: 10px;
-    width: 30%;
+.AddToSide label {
+    font-weight: 600;
+    color: #555;
+    cursor: pointer;
+    user-select: none;
 }
 
-.LevelInput {
-    margin-top: 8px;
-    margin-left: 4px;
-    width: 30px;
-    margin-right: 10px;
-}
-
-.LinkInput {
-    margin-top: 8px;
-    margin-left: 10px;
-    width: 30px;
+.results-count {
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-style: italic;
 }
