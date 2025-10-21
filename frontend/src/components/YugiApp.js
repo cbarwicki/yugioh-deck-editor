@@ -17,24 +17,24 @@ function YugiApp () {
     const addToDeck = (card) => {
         const quanityOfCardInMain = mainDeck.filter((cardInDeck) => {
                 return (
-                    cardInDeck == card.id
+                    cardInDeck == card
                 );
             }).length;
         const quanityOfCardInSide = sideDeck.filter((cardInDeck) => {
                 return (
-                    cardInDeck == card.id
+                    cardInDeck == card
                 );
             }).length;
         const quanityOfCardInExtra = extraDeck.filter((cardInDeck) => {
                 return (
-                    cardInDeck == card.id
+                    cardInDeck == card
                 );
             }).length;
         const totalQuantityOfCard = quanityOfCardInMain + quanityOfCardInSide + quanityOfCardInExtra;
         if (totalQuantityOfCard < 3) {
             if (addToSide) {
                 if (sideDeck.length < 15){
-                    sideDeck.push(card.id);
+                    sideDeck.push(card);
                 }
             }
             else if (card.frameType == "fusion" 
@@ -42,13 +42,13 @@ function YugiApp () {
                 || card.frameType == "xyz" 
                 || card.frameType == "link") {
                 if (extraDeck.length < 15){
-                    extraDeck.push(card.id);
+                    extraDeck.push(card);
                     console.log(card);
                 }
             }
             else {
                 if (mainDeck.length < 60) {
-                    mainDeck.push(card.id);
+                    mainDeck.push(card);
                     console.log(card);
                 }
             }
@@ -86,10 +86,16 @@ function YugiApp () {
                 </div>
             </header>
             <main className="app-main">
-                <CardViewer id={currentCardId} />
+                <CardViewer 
+                    id={currentCardId}
+                    mainDeck={mainDeck} 
+                    sideDeck={sideDeck} 
+                    extraDeck={extraDeck} 
+                />
                 <DeckViewer 
                     setCurrentCardId={setCurrentCardId} 
-                    mainDeck={mainDeck} sideDeck={sideDeck} 
+                    mainDeck={mainDeck} 
+                    sideDeck={sideDeck} 
                     extraDeck={extraDeck} 
                     removeFromDeck={removeFromDeck} 
                     removeFromSideDeck={removeFromSideDeck} 

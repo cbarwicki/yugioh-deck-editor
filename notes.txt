@@ -37,5 +37,13 @@ Progress throughout this project:
 * Used AWS S3 to host over 25,000 images of yugioh cards
 * Learned how to use debouncing in a search bar to optimize performance
 
+Ideas for new features:
+
+* export deck feature
+* save deck
+* version control for saved decks
+* winrate tracking
+
 url for deployment:
 https://yugioh-deck-editor-szsu.vercel.app/
+

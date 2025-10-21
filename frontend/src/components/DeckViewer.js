@@ -19,9 +19,9 @@ function DeckViewer ( { id, setCurrentCardId, mainDeck, sideDeck, extraDeck, rem
                         </div>
                     ) : (
                         <Grid container spacing={1.5} className="CardList">
-                            {mainDeck.map((cardId, index) => (
-                            <Grid key={`main-${cardId}-${index}`} onClick={() => removeFromDeck(cardId)} >
-                                <Card id={cardId} setCurrentCardId={setCurrentCardId} />
+                            {mainDeck.map((card, index) => (
+                            <Grid key={`main-${card.id}-${index}`} onClick={() => removeFromDeck(card)} >
+                                <Card id={card.id} name={card.name} setCurrentCardId={setCurrentCardId} />
                             </Grid>
                             ))}
                         </Grid>
@@ -41,9 +41,9 @@ function DeckViewer ( { id, setCurrentCardId, mainDeck, sideDeck, extraDeck, rem
                         </div>
                     ) : (
                         <Grid container spacing={1.5} className="CardList">
-                            {sideDeck.map((cardId, index) => (
-                            <Grid key={`side-${cardId}-${index}`} onClick={() => removeFromSideDeck(cardId)}>
-                                <Card id={cardId} setCurrentCardId={setCurrentCardId} />
+                            {sideDeck.map((card, index) => (
+                            <Grid key={`side-${card.id}-${index}`} onClick={() => removeFromSideDeck(card)}>
+                                <Card id={card.id} name={card.name} setCurrentCardId={setCurrentCardId} />
                             </Grid>
                             ))}
                         </Grid>
@@ -63,9 +63,9 @@ function DeckViewer ( { id, setCurrentCardId, mainDeck, sideDeck, extraDeck, rem
                         </div>
                     ) : (
                         <Grid container spacing={1.5} className="CardList">
-                            {extraDeck.map((cardId, index) => (
-                            <Grid key={`extra-${cardId}-${index}`} onClick={() => removeFromExtraDeck(cardId)}>
-                                <Card id={cardId} setCurrentCardId={setCurrentCardId} />
+                            {extraDeck.map((card, index) => (
+                            <Grid key={`extra-${card.id}-${index}`} onClick={() => removeFromExtraDeck(card)}>
+                                <Card id={card.id} name={card.name} setCurrentCardId={setCurrentCardId} />
                             </Grid>
                             ))}
                         </Grid>
