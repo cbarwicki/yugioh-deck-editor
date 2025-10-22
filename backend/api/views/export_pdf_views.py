@@ -1,13 +1,8 @@
-from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse, FileResponse
+from django.http import FileResponse
 from rest_framework.decorators import api_view, renderer_classes
 from rest_framework.renderers import BaseRenderer
-from rest_framework.response import Response
-from rest_framework import status
 from django.views.decorators.csrf import csrf_exempt
-from .utils import get_cards
 from PyPDF2 import PdfReader, PdfWriter
-import webbrowser
 from django.conf import settings
 
 class PDFRenderer(BaseRenderer):
@@ -20,7 +15,7 @@ class PDFRenderer(BaseRenderer):
 @csrf_exempt
 @api_view(['POST'])
 @renderer_classes([PDFRenderer])
-def hello(request):
+def export_pdf(request):
     data = request.data
 
     main_deck = sorted(data["mainDeck"], key=lambda x: x["name"])
@@ -165,5 +160,5 @@ def hello(request):
     
     return(response)
 
-def card_info(request):
-    return get_cards(request)
+# def card_info(request):
+#     return get_cards(request)

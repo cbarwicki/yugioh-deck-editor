@@ -3,13 +3,11 @@ import '../css/CardViewer.css';
 
 function CardViewer ( {id, mainDeck, sideDeck, extraDeck} ) {
 
-    const [message, setMessage] = useState('');
-
     const API_BASE_URL = process.env.REACT_APP_API_URL;
 
     const handleSubmit = async () => {
         try {
-            const response = await fetch(`${API_BASE_URL}/api/hello/`, { // Adjust URL as needed
+            const response = await fetch(`${API_BASE_URL}/api/exportPdf/`, { // Adjust URL as needed
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -39,7 +37,7 @@ function CardViewer ( {id, mainDeck, sideDeck, extraDeck} ) {
         <div className="CardViewer">
             <img src={`https://yugi-card-bucket.s3.us-east-2.amazonaws.com/pics/${id}.jpg`} alt={id} width={528} height={770} />
             <button onClick={handleSubmit} >
-                click me
+                Export Deck
             </button>
         </div>
     );

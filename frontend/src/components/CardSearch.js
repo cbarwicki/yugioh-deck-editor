@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import cardinfo from "../cardinfo.json";
 import Card from "./Card.js";
 import Grid from '@mui/material/Grid';
 import '../css/CardSearch.css';
@@ -15,8 +14,31 @@ function CardSearch ( { setCurrentCardId, addToDeck, updateAddToSide } ) {
     const [typeFilter, setTypeFilter] = useState("");
     const [levelFilter, setLevelFilter] = useState("");
     const [linkFilter, setLinkFilter] = useState("");
+    const [cardInfo, setCardInfo] = useState([]);
 
+    const API_BASE_URL = process.env.REACT_APP_API_URL;
     const delay = 1000;
+
+    // get card info
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/card-info`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        "Accept": "application/json",
+                    },
+                });
+                setCardInfo(await response.json());
+                console.log(`Fetch successful, data: ${cardInfo.data}`);
+                console.log(`is array: ${Array.isArray(cardInfo.data)}`);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
+        fetchData();  
+    }, []);
 
     // Update debounced input after delay
     useEffect(() => {
@@ -32,7 +54,7 @@ function CardSearch ( { setCurrentCardId, addToDeck, updateAddToSide } ) {
         if (debouncedInput == "") {
             return;
         }
-        var searchResults = cardinfo.data.filter((card) => {
+        var searchResults = cardInfo.data.filter((card) => {
           return (
             card &&
             card.name &&
