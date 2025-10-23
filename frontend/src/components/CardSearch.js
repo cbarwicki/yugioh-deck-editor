@@ -22,8 +22,9 @@ function CardSearch ( { setCurrentCardId, addToDeck, updateAddToSide } ) {
     // get card info
     useEffect(() => {
         const fetchData = async () => {
+            console.log(API_BASE_URL)
             try {
-                const response = await fetch(`${API_BASE_URL}/api/card-info`, {
+                const response = await fetch(`${API_BASE_URL}/api/card-info/`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
