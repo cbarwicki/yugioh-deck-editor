@@ -26,8 +26,17 @@ SECRET_KEY = 'django-insecure-p!wutb8on3z7qsvi@#5t^+dgvokmsfyke$po*&syrjcpuxp6-_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['prod-env.eba-bn3665mw.us-west-2.elasticbeanstalk.com', 'localhost']
+# ALLOWED_HOSTS = [
+#     'prod-env.eba-bn3665mw.us-west-2.elasticbeanstalk.com', 
+#     'localhost', 
+#     'yugideckapi.com', 
+#     'www.yugideckapi.com',
+#     '16.145.5.26'
+# ]
 
+ALLOWED_HOSTS = [
+    '*'
+]
 
 # Application definition
 
@@ -55,11 +64,13 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000'
+    'http://localhost:3000',
+    'https://yugioh-deck-editor.vercel.app'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000"
+    "http://localhost:3000",
+    'https://yugioh-deck-editor.vercel.app'
 ]
 
 ROOT_URLCONF = 'yugiapp.urls'
